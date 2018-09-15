@@ -1,5 +1,62 @@
 # webpack-study
 webpack 学习
+## 1.1 初如化项目
+  (1) 新建项目目录 demo1 并进入 项目目录
+
+  (2) 执行 npm init 来初始化一个 package.json 文件
+
+  (3) 执行 npm i -D webpack 安装 webpack
+
+  (4) 配置打包命令，在 package.json 中添加如下代码 
+
+    > "scripts": {
+    >   "start": "webpack--config webpack.config.js" 
+    > }
+
+## 1.2 创建项目文件
+  (1) 创建页面入口文件 index.html 如下
+    > <html>
+    > <head>
+    >   <meta charset="UTF-8">
+    > </head>
+    > <body>
+    >   <div id="app"></div>
+    >   <!-- 导入 Webpack 输出的 Javascript 文件 -->
+    >   <script src="./dist/bundle.js"></script>
+    > </body>
+    > </html>
+
+  (2)  创建存放工具函数 show.js 如下
+    > // 操作 DOM 元素，将 content 显示到网页上
+    > function show(content) {
+    >   window.document.getElementById('app').innerHTML = 'Hello,' + content
+    > }
+    > // 通过 CommonJS 规范导出 show 函数
+    > module.exports = show
+  (3) 创建包含执行入口的 main.js 文件 如下
+    > // 通过 CommonJS 规范导入 show 函数
+    > const show = require('./show.js')
+    > // 执行 show 函数
+    > show('webpack')
+  (4) 创建 webpack 配置文件 webpack.config.js (webpack 在执行构建时默认会从项目目录下的 webpack.config.js 文件中读取配置)
+    > const path = require('path')
+    > module.exports = {
+    > // Javascript 执行入口文件
+    > entry: './main.js',
+    > output: {
+    >     // 将所有依赖的模块合并输出到一个 bundle.js 文件
+    >     filename: 'bundle.js',
+    >     // 将输出文件都放到 dist 目录下
+    >     path: path.resolve(__dirname, './dist')
+    >   }
+    > }
+
+## 1.3 构建项目
+   执行 npm run start 命令
+
+   此时目录下多了下个 dist 文件夹
+
+   
 webpack命令局部运行的几种方法
  
 ## 1. 第一种，先全局安装webpack
