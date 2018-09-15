@@ -19,6 +19,7 @@ webpack 学习
     <html>
     <head>
       <meta charset="UTF-8">
+      <title>webpack demo1</title>
     </head>
     <body>
       <div id="app"></div>
