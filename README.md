@@ -31,3 +31,4 @@ webpack();
 除了上面这四种方法，应该还有其他方法，比如我了解的利用package.json的Bin属性等，但具体情况我还没尝试，等后续尝试了再来补充。
  
 有理解错误的地方还望老司机指出，我会及时改正，以免误导大家，谢谢~。
+来源： https://blog.csdn.net/qappleh/article/details/81083964
